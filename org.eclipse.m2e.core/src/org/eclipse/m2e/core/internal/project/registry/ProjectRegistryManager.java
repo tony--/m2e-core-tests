@@ -112,9 +112,9 @@ public class ProjectRegistryManager {
    * are treated separately.
    */
   public static final List<? extends IPath> METADATA_PATH = Arrays.asList( //
-      new Path(".project"), //
-      new Path(".classpath"), //
-      new Path(".settings/org.eclipse.m2e.prefs")); // dirty hack!
+      new Path(".project"), // //$NON-NLS-1$
+      new Path(".classpath"), // //$NON-NLS-1$
+      new Path(".settings/org.eclipse.m2e.prefs")); // dirty trick! //$NON-NLS-1$
 
   private final ProjectRegistry projectRegistry;
 

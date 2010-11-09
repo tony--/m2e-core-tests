@@ -43,7 +43,7 @@ import org.eclipse.m2e.core.MavenPlugin;
 
 
 /**
- * A resource fetcher based on the Async HTTP Client.
+ * A resource fetcher using Async HTTP Client.
  * 
  * @author Benjamin Bentmann
  */
