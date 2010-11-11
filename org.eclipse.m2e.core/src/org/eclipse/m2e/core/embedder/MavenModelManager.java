@@ -42,24 +42,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import org.apache.maven.RepositoryUtils;
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.factory.ArtifactFactory;
-import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
-import org.apache.maven.artifact.resolver.ArtifactCollector;
-import org.apache.maven.artifact.resolver.filter.ScopeArtifactFilter;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.DependencyManagement;
 import org.apache.maven.project.MavenProject;
-import org.apache.maven.shared.dependency.tree.DependencyNode;
-import org.apache.maven.shared.dependency.tree.DependencyTreeBuilder;
-import org.apache.maven.shared.dependency.tree.DependencyTreeBuilderException;
-import org.apache.maven.shared.dependency.tree.filter.ArtifactDependencyNodeFilter;
-import org.apache.maven.shared.dependency.tree.traversal.BuildingDependencyNodeVisitor;
-import org.apache.maven.shared.dependency.tree.traversal.FilteringDependencyNodeVisitor;
 
 import org.sonatype.aether.artifact.ArtifactTypeRegistry;
 import org.sonatype.aether.collection.CollectRequest;
 import org.sonatype.aether.collection.DependencyCollectionException;
 import org.sonatype.aether.collection.DependencyGraphTransformer;
+import org.sonatype.aether.graph.DependencyNode;
 import org.sonatype.aether.util.DefaultRepositorySystemSession;
 import org.sonatype.aether.util.filter.ScopeDependencyFilter;
 import org.sonatype.aether.util.graph.CloningDependencyVisitor;
@@ -196,52 +186,7 @@ public class MavenModelManager {
     }
   }
 
-  /**
-   * @param force
-   * @param monitor
-   * @param scope one of 
-   *   {@link Artifact#SCOPE_COMPILE}, 
-   *   {@link Artifact#SCOPE_TEST}, 
-   *   {@link Artifact#SCOPE_SYSTEM}, 
-   *   {@link Artifact#SCOPE_PROVIDED}, 
-   *   {@link Artifact#SCOPE_RUNTIME}
-   *   
-   * @return dependency node
-   */
-  public synchronized DependencyNode readDependencies(MavenProject mavenProject, String scope, IProgressMonitor monitor) throws CoreException {
-    try {
-      monitor.setTaskName("Building dependency tree");
-
-      ArtifactFactory artifactFactory = MavenPlugin.getDefault().getArtifactFactory();
-      ArtifactMetadataSource artifactMetadataSource = MavenPlugin.getDefault().getArtifactMetadataSource();
-
-      ArtifactCollector artifactCollector = MavenPlugin.getDefault().getArtifactCollector();
-
-      MavenSession session = maven.createSession(maven.createExecutionRequest(monitor), mavenProject);
-
-      MavenSession oldSession = MavenPlugin.getDefault().setSession(session);
-
-      DependencyNode node;
-      try {
-        DependencyTreeBuilder builder = MavenPlugin.getDefault().getDependencyTreeBuilder();
-        node = builder.buildDependencyTree(mavenProject, session.getLocalRepository(), artifactFactory,
-            artifactMetadataSource, null, artifactCollector);
-      } finally {
-        MavenPlugin.getDefault().setSession(oldSession);
-      }
-
-      BuildingDependencyNodeVisitor visitor = new BuildingDependencyNodeVisitor(); 
-      node.accept(new FilteringDependencyNodeVisitor(visitor,
-          new ArtifactDependencyNodeFilter(new ScopeArtifactFilter(scope))));
-      return visitor.getDependencyTree();
-    } catch(DependencyTreeBuilderException ex) {
-      String msg = "Project read error";
-      MavenLogger.log(msg, ex);
-      throw new CoreException(new Status(IStatus.ERROR, IMavenConstants.PLUGIN_ID, -1, msg, ex));
-    }
-  }
-
-  public synchronized org.sonatype.aether.graph.DependencyNode readDependencyTree(IFile file, String classpath,
+  public synchronized DependencyNode readDependencyTree(IFile file, String classpath,
       IProgressMonitor monitor) throws CoreException {
     monitor.setTaskName("Reading project");
     MavenProject mavenProject = readMavenProject(file, monitor);
@@ -249,7 +194,7 @@ public class MavenModelManager {
     return readDependencyTree(mavenProject, classpath, monitor);
   }
 
-  public synchronized org.sonatype.aether.graph.DependencyNode readDependencyTree(MavenProject mavenProject,
+  public synchronized DependencyNode readDependencyTree(MavenProject mavenProject,
       String classpath, IProgressMonitor monitor) throws CoreException {
     monitor.setTaskName("Building dependency tree");
 
@@ -282,7 +227,7 @@ public class MavenModelManager {
         }
       }
 
-      org.sonatype.aether.graph.DependencyNode node;
+      DependencyNode node;
       try {
         node = MavenPlugin.getDefault().getRepositorySystem().collectDependencies(session, request).getRoot();
       } catch(DependencyCollectionException ex) {
