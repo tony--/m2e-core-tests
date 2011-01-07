@@ -11,6 +11,7 @@ package org.maven.ide.eclipse.internal.embedder;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.classrealm.ClassRealmConstituent;
 import org.apache.maven.classrealm.ClassRealmManagerDelegate;
@@ -53,6 +54,14 @@ public class EclipseClassRealmManagerDelegateTest extends TestCase {
 
       public RealmType getType() {
         return RealmType.Plugin;
+      }
+
+      public Map<String, ClassLoader> getForeignImports() {
+        return null;
+      }
+
+      public List<String> getParentImports() {
+        return null;
       }
 
     };
