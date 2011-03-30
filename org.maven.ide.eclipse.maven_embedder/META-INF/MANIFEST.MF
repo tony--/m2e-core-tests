@@ -104,6 +104,7 @@ Bundle-ClassPath: jars/maven-embedder-3.0.2.jar,jars/maven-settings-3.
  ven-artifact-3.0.2.jar,jars/maven-aether-provider-3.0.2.jar,jars/aeth
  er-impl-1.9.jar,jars/plexus-interpolation-1.14.jar,jars/maven-compat-
  3.0.2.jar,jars/commons-cli-1.2.jar,jars/wagon-file-1.0-beta-7.jar,jar
+<<<<<<< HEAD
  s/aether-connector-wagon-1.9.jar,jars/guice-bean-binders-1.4.3.1.jar,
  jars/javax.inject-1.jar,jars/guice-bean-reflect-1.4.3.1.jar,jars/guic
  e-bean-scanners-1.4.3.1.jar,jars/asm-3.3.jar,jars/guice-bean-converte
@@ -120,6 +121,23 @@ Bundle-ClassPath: jars/maven-embedder-3.0.2.jar,jars/maven-settings-3.
  jars/wagon-provider-api-1.0-beta-6.jar,jars/slf4j-simple-1.6.1.jar,ja
  rs/slf4j-api-1.6.1.jar
 Bundle-Version: 0.12.1.qualifier
+=======
+ s/aether-connector-wagon-1.9.jar,jars/guice-bean-binders-2.1.1.jar,ja
+ rs/javax.inject-1.jar,jars/guice-bean-reflect-2.1.1.jar,jars/guice-be
+ an-scanners-2.1.1.jar,jars/guice-bean-converters-2.1.1.jar,jars/guice
+ -bean-locators-2.1.1.jar,jars/guice-bean-inject-2.1.1.jar,jars/guice-
+ plexus-binders-2.1.1.jar,jars/plexus-component-annotations-1.5.5.jar,
+ jars/guice-plexus-metadata-2.1.1.jar,jars/guice-plexus-scanners-2.1.1
+ .jar,jars/guice-plexus-converters-2.1.1.jar,jars/plexus-utils-2.0.5.j
+ ar,jars/guice-plexus-locators-2.1.1.jar,jars/plexus-classworlds-2.4.j
+ ar,jars/guice-plexus-shim-2.1.1.jar,jars/sisu-guice-2.9.4-no_aop.jar,
+ jars/plexus-build-api-0.0.6.jar,jars/aether-connector-asynchttpclient
+ -1.11.jar,jars/aether-api-1.11.jar,jars/aether-spi-1.11.jar,jars/aeth
+ er-util-1.11.jar,jars/async-http-client-1.6.3.jar,jars/netty-3.2.4.Fi
+ nal.jar,jars/wagon-ahc-1.2.0.jar,jars/wagon-provider-api-1.0-beta-6.j
+ ar,jars/slf4j-simple-1.6.1.jar,jars/slf4j-api-1.6.1.jar
+Bundle-Version: 0.12.2.qualifier
+>>>>>>> 31ef9bd... 0.12.2-SNAPSHOT
 Bundle-Name: Embedded Maven Runtime Bundle
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.maven.ide.eclipse.maven_embedder;singleton:=t
