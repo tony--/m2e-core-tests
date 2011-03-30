@@ -23,18 +23,18 @@
 
   <properties>
     <!-- maven core version -->
-    <maven.version>3.0.2</maven.version>
+    <maven.version>3.0.3</maven.version>
 
     <!-- the following MUST match <maven.version/> above. I wish I could make scope=import do this for me -->
-    <sisu.version>1.4.3.1</sisu.version>
+    <sisu.version>2.1.1</sisu.version>
     <classworlds.version>2.4</classworlds.version>
-    <aether.version>1.9</aether.version>
-    <sisu-guice.version>2.9.1</sisu-guice.version>
+    <aether.version>1.11</aether.version>
+    <sisu-guice.version>2.9.4</sisu-guice.version>
 
     <!-- below are m2e-specific addons -->
     <plexus-build-api.version>0.0.6</plexus-build-api.version>
-    <wagon-ahc.version>1.0.0</wagon-ahc.version>
-    <async-http-client.version>1.4.1</async-http-client.version>
+    <wagon-ahc.version>1.2.0</wagon-ahc.version>
+    <async-http-client.version>1.6.3</async-http-client.version>
     <slf4j.version>1.6.1</slf4j.version>
   </properties>
 
@@ -102,7 +102,7 @@
       <groupId>org.sonatype.sisu</groupId>
       <artifactId>sisu-guice</artifactId>
       <version>${sisu-guice.version}</version>
-      <classifier>noaop</classifier>
+      <classifier>no_aop</classifier>
     </dependency>
 
     <dependency>
@@ -174,7 +174,7 @@
             org.sonatype.plexus.*,
             org.sonatype.aether.*,
             com.google.inject.*,
-            com.ning.http.client,
+            com.ning.http.client.*,
             META-INF.plexus,
           </exportPackages>
           <manifestAttributes>
