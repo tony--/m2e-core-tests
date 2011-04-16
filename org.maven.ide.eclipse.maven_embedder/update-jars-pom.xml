@@ -157,7 +157,7 @@
       <plugin>
         <groupId>org.sonatype.tycho</groupId>
         <artifactId>maven-osgi-packaging-plugin</artifactId>
-        <version>0.11.0-SNAPSHOT</version>
+        <version>0.11.0</version>
         <executions>
           <execution>
             <phase>process-classes</phase>
@@ -175,6 +175,7 @@
             org.sonatype.aether.*,
             com.google.inject.*,
             com.ning.http.client.*,
+            org.sonatype.maven.wagon.*,
             META-INF.plexus,
           </exportPackages>
           <manifestAttributes>
