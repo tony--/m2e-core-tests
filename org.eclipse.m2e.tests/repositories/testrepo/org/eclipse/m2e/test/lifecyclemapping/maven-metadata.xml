@@ -6,5 +6,10 @@
       <prefix>test-lifecyclemapping</prefix>
       <artifactId>test-lifecyclemapping-plugin</artifactId>
     </plugin>
+    <plugin>
+      <name>test-codegeneration-plugin</name>
+      <prefix>test-codegeneration</prefix>
+      <artifactId>test-codegeneration-plugin</artifactId>
+    </plugin>
   </plugins>
 </metadata>

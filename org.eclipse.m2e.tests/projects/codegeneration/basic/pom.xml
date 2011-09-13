@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.m2e.test</groupId>
+    <artifactId>m2e-test-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <groupId>configurator-configuration</groupId>
+  <artifactId>basic</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>test-packaging-empty</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.m2e.test.lifecyclemapping</groupId>
+        <artifactId>test-lifecyclemapping-plugin</artifactId>
+        <version>1.0.0</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <phase>compile</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.m2e.test.lifecyclemapping</groupId>
+        <artifactId>test-codegeneration-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>test-generation</id>
+            <goals>
+              <goal>generate-resources-with-source-directory</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

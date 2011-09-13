@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>${project.artifactId}</artifactId>
+        <versionRange>${project.version}</versionRange>
+        <goals>
+          <goal>generate-resources-with-source-directory</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+        <configurator>
+          <id>org.eclipse.m2e.jdt.codeGenerationConfigurator</id>
+          <configuration>
+            <sourceDirectory>${mojo.sourceDirectory}</sourceDirectory>
+            <outputDirectory>${mojo.outputDirectory}</outputDirectory>
+          </configuration>
+        </configurator>
+      </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>
