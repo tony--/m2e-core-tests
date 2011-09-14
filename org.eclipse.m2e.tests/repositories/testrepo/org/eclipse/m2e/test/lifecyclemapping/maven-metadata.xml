@@ -11,5 +11,10 @@
       <prefix>test-codegeneration</prefix>
       <artifactId>test-codegeneration-plugin</artifactId>
     </plugin>
+    <plugin>
+      <name>test-embeddedmapping-plugin</name>
+      <prefix>test-embeddedmapping</prefix>
+      <artifactId>test-embeddedmapping-plugin</artifactId>
+    </plugin>
   </plugins>
 </metadata>

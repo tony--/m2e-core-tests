@@ -9,7 +9,7 @@
  *      Sonatype, Inc. - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.m2e.tests.lifecycle;
+package org.eclipse.m2e.tests.jdt.internal;
 
 import java.util.Arrays;
 import java.util.List;
