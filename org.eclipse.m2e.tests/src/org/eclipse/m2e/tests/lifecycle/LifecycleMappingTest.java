@@ -723,4 +723,12 @@ public class LifecycleMappingTest extends AbstractLifecycleMappingTest {
 
   }
 
+  public void test441963_fileProfileActivation() throws Exception {
+    IMavenProjectFacade facade = importMavenProject("projects/441963_fileProfileActivation", "pom.xml");
+    assertNotNull("Expected not null MavenProjectFacade", facade);
+    IProject project = facade.getProject();
+    WorkspaceHelpers.assertNoErrors(project);
+
+    // TODO more thoroughly assert lifecycle mapping
+  }
 }
